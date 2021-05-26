@@ -3,3 +3,6 @@ setup.*
 *.toml
 build.py
 *.bat
+dist/*
+build/*
+GameTools_spidertyler2005.egg-info/*
