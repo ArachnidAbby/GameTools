@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/Version-0.1.2-green) ![Status](https://img.shields.io/badge/Status-Operational-mint)
+![Version](https://img.shields.io/badge/Version-0.1.2-green) ![Status](https://img.shields.io/badge/Status-Operational-mint) ![issues](https://img.shields.io/github/issues/spidertyler2005/GameTools)
 
 # GameTools
 

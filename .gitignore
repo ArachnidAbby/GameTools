@@ -1,4 +1,5 @@
 **/__pycache__/*
-setup.py
+setup.*
+*.toml
 build.py
 *.bat
