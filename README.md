@@ -23,7 +23,7 @@ GameTools is a collection of packages that helps you create your game.
 ## Getting Started
 
 ### Installation
- in your terminal run `python -m ppip install GameTools-spidertyler2005`.Alternatively, you can download the source directly and throw it into your project.
+ in your terminal run `python -m pip install GameTools-spidertyler2005`.Alternatively, you can download the source directly and throw it into your project.
 
 ### examples
 If you look into Testing.py you can see me playing around with everything. There are also examples in the docs

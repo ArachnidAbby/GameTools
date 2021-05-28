@@ -1,4 +1,8 @@
+
+#[Python]
 **/__pycache__/*
+
+#[Disctrobution]
 setup.*
 *.toml
 build.py
@@ -6,3 +10,6 @@ build.py
 dist/*
 build/*
 GameTools_spidertyler2005.egg-info/*
+
+#[Version testing]
+VersionTesting/
