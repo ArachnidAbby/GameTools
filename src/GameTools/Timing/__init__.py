@@ -1,1 +1,1 @@
-from GameTools.Timing.DeltaTime import *
+from . import DeltaTime
