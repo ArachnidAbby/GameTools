@@ -42,7 +42,7 @@ class Game:
   		'''
         self.start()
         while self.running:
-            timing.calculate_DeltaTime()
+            timing.DeltaTime.calculate_DeltaTime()
             self.events(timing.deltaTime)
             self.update(timing.deltaTime)
             self.draw()
@@ -83,7 +83,7 @@ class Pygame(Game):
         self.start()
         while self.running:
             self.clock.tick(self.frameRate)
-            timing.calculate_DeltaTime()
+            timing.DeltaTime.calculate_DeltaTime()
             if pygame.event.get(eventtype=pygame.QUIT):
                 self.running=False
                 continue
