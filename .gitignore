@@ -9,7 +9,7 @@ build.py
 *.bat
 dist/*
 build/*
-GameTools_spidertyler2005.egg-info/*
+src/GameTools.egg-info/*
 
 #[Version testing]
 VersionTesting/
