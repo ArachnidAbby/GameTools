@@ -1,1 +1,1 @@
-from . import ProjectTemplates
+from . import ProjectTemplates, FullTemplate

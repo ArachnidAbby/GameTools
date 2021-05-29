@@ -4,6 +4,6 @@ print('''
 Thank you for using GameTools.
 This tool is completely free so consider donating!
       
-version: 0.1
+version: 0.1.3
 Published by: Benjamin Austin
 ''')

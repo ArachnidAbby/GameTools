@@ -1,9 +1,8 @@
 from GameTools.Templates import ProjectTemplates
-import GameTools, pygame, time
+import GameTools, time,pygame
 from GameTools import Templates, Entity,Tools
 from GameTools.Tools import Math
 from GameTools.Templates import ProjectTemplates
-pygame.init()
 
 class myGame(ProjectTemplates.Pygame):
     def start(self):
