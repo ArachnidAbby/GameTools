@@ -22,3 +22,8 @@ class plane(point):
     def change_Dimensions(self,w,h):
         self.w = w
         self.h = h
+
+
+def calculate_Coords(x,game):
+    return x/(((game.width**2)+(game.height**2))**0.5)
+
