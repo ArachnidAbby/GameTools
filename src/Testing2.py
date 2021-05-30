@@ -11,9 +11,11 @@ from GameTools import Templates, Entity, Tools
 from GameTools.Tools import Math
 from GameTools.Templates import FullTemplate
 
-game = FullTemplate.createGame(600,600,"My Game",frameRate=32)
-box = Entity.shapes.rectangle(Math.plane(0,0,Math.calculate_Coords(300,game),Math.calculate_Coords(300,game)),(0,0,0))#position and size are a percentage of the screensize!
+game = FullTemplate.createGame(720,512,"My Game",frameRate=-1)
+box = Entity.shapes.rectangle(Math.plane(0,0,Math.calculate_Coords(206,game),Math.calculate_Coords(206,game)),(0,0,0))#position and size are a percentage of the screensize!
 game.direction = 1
+font = pygame.font.Font('freesansbold.ttf', 32)
+game.text= font.render('30', True, (0,255,0), (0,0,255))
 
 @FullTemplate.start(game)
 def start():
@@ -21,13 +23,12 @@ def start():
 
 @FullTemplate.events(game)
 def events(dt):
-    pass
+    for event in pygame.event.get():
+        pass
 
 @FullTemplate.update(game)
 def update(dt):
-    if 1/dt<30:
-        print(1/dt)
-        return None
+    game.text = font.render(str(int(1/dt)), True, (0,255,0), (0,0,255))
     box.move(Math.point(0.2*dt*game.direction,0))
     if box.touching_X(1):
         game.direction=-1
@@ -37,5 +38,6 @@ def update(dt):
 @FullTemplate.draw(game)
 def draw():
     game.draw_Entity(box)
+    game.window.blit(game.text,[0,0])
 
 game.start_GameLoop()

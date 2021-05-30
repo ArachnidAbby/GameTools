@@ -35,7 +35,7 @@ class rectangle(basics.Entity):
         #self.currentPlane = Tools.Math.Basics.plane(*plane)
         pygame.draw.rect(game.window,self.color,plane)
 
-    def touching_X(self,X, thresh=2):
+    def touching_X(self,X, thresh=5):
         '''
         converts to pixel coordinates and tests if it has collided on the X
         '''
@@ -48,7 +48,7 @@ class rectangle(basics.Entity):
             return True
         return False
     
-    def touching_Y(self,Y,game, thresh=2):
+    def touching_Y(self,Y,game, thresh=5):
         '''
         converts to pixel coordinates and tests if it has collided on the X
         '''
