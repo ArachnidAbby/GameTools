@@ -6,16 +6,16 @@ from GameTools.Templates import ProjectTemplates
 
 class myGame(ProjectTemplates.Pygame):
     def start(self):
-        self.box = Entity.Entity(Math.plane(0,0,200,200))
+        self.box = Entity.shapes.rectangle(Math.plane(0,0,0.2,0.2),(0,0,0))
         GameTools.Tools.Messaging.send_Message("Default Message",None,TestKwarg='coolTest')
     def update(self, dt):
-        self.box.move(Math.point(50*dt,0))
-        if self.box.plane.x+self.box.plane.w-10>=self.width:
+        self.box.move(Math.point(0.2*dt,0))
+        if self.box.plane.x+self.box.plane.w>1:
             self.box.plane.x=0
     
     def draw(self):
-        pygame.draw.rect(self.window,(0,0,0),self.box.plane.export())
+        self.draw_Entity(self.box)
 
 #print(Tools.Messaging.recv_Message.__doc__)
 
-myGame(600,600,"Gaming Time")
+myGame(6,"Gaming Time")
