@@ -48,7 +48,8 @@ class Game:
             self.draw()
             
     def draw_Entity(self,entity):
-        entity.draw(self.window)
+        entity.draw(self)
+    
             
 class Pygame(Game):
     '''
@@ -61,11 +62,13 @@ class Pygame(Game):
       start_GameLoop -> built-in
       
     '''
-    def __init__(self,width,height,title, frameRate = 60, fillColor = (255,255,255), AnnounceStart = True):
-        self.width = width
-        self.height = height
+    def __init__(self,size,title, frameRate = 60, fillColor = (255,255,255), AnnounceStart = True):
+        self.width = int(pygame.display.Info().current_w*size*0.1)
+        self.height = int(pygame.display.Info().current_h*size*0.1)
+        self.currentWidth = self.width
+        self.currentHeight = self.height
         self.title = title
-        self.window = pygame.display.set_mode((width,height))
+        self.window = pygame.display.set_mode((self.width,self.height),pygame.RESIZABLE)
         pygame.display.set_caption(title)
         self.clock = pygame.time.Clock()
         self.frameRate = frameRate
@@ -87,9 +90,16 @@ class Pygame(Game):
             if pygame.event.get(eventtype=pygame.QUIT):
                 self.running=False
                 continue
+            if pygame.event.get(eventtype=pygame.WINDOWRESIZED):
+                self.resize()
             self.events(timing.DeltaTime.deltaTime)
             self.update(timing.DeltaTime.deltaTime)
             self.window.fill(self.fillColor)
             self.draw()
             pygame.display.update()
         pygame.quit()
+    
+    def resize(self):
+        #print(pygame.display.get_window_size())
+        self.currentHeight = pygame.display.get_window_size()[1]
+        self.currentWidth = pygame.display.get_window_size()[0]

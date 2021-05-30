@@ -1,16 +1,20 @@
 import GameTools.Timing as timing
 import pygame
 from . import ProjectTemplates
+pygame.init()
 
 class game(ProjectTemplates.Pygame):
     '''
     Simply contains game properties for an async project
     '''
-    def __init__(self,w,h,title, frameRate = 60, fillColor = (255,255,255)):
-        self.width = w
-        self.height = h
+    def __init__(self,size,title, frameRate = 60, fillColor = (255,255,255)):
+        self.width = int(pygame.display.Info().current_w*size*0.1)
+        self.height = int(pygame.display.Info().current_h*size*0.1)
+        #print(self.width,self.height)
+        self.currentWidth = self.width
+        self.currentHeight = self.height
         self.title = title
-        self.window = pygame.display.set_mode((w,h))
+        self.window = pygame.display.set_mode((self.width,self.height),pygame.RESIZABLE)
         pygame.display.set_caption(title)
         self.clock = pygame.time.Clock()
         self.frameRate = frameRate
@@ -45,8 +49,8 @@ class game(ProjectTemplates.Pygame):
         pass
 
 
-def createGame(w,h,title, frameRate = 60, fillColor = (255,255,255)):
-    return game(w,h,title, frameRate=frameRate , fillColor=fillColor)
+def createGame(size,title, frameRate = 60, fillColor = (255,255,255)):
+    return game(size,title, frameRate=frameRate , fillColor=fillColor)
 
 
 def events(gameProps):
