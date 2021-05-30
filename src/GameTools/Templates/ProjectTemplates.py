@@ -62,9 +62,9 @@ class Pygame(Game):
       start_GameLoop -> built-in
       
     '''
-    def __init__(self,size,title, frameRate = 60, fillColor = (255,255,255), AnnounceStart = True):
-        self.width = int(pygame.display.Info().current_w*size*0.1)
-        self.height = int(pygame.display.Info().current_h*size*0.1)
+    def __init__(self,w,h,title, frameRate = 60, fillColor = (255,255,255), AnnounceStart = True):
+        self.width = w
+        self.height = h
         self.currentWidth = self.width
         self.currentHeight = self.height
         self.title = title
@@ -83,6 +83,7 @@ class Pygame(Game):
         a method that handles the startup sequence of the gameloop.
         this specifically works with pygame rendering.
   		'''
+        FF = True
         self.start()
         while self.running:
             self.clock.tick(self.frameRate)
@@ -93,7 +94,9 @@ class Pygame(Game):
             if pygame.event.get(eventtype=pygame.WINDOWRESIZED):
                 self.resize()
             self.events(timing.DeltaTime.deltaTime)
-            self.update(timing.DeltaTime.deltaTime)
+            if not FF: 
+                self.update(timing.DeltaTime.deltaTime)
+            else: FF = False
             self.window.fill(self.fillColor)
             self.draw()
             pygame.display.update()
