@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/Version-0.1.3-green) ![Status](https://img.shields.io/badge/Status-Operational-mint) ![issues](https://img.shields.io/github/issues/spidertyler2005/GameTools)
+![Version](https://img.shields.io/badge/Version-0.2.0-green) ![Status](https://img.shields.io/badge/Status-Operational-mint) ![issues](https://img.shields.io/github/issues/spidertyler2005/GameTools)
 
 # GameTools
 
@@ -29,7 +29,7 @@ GameTools is a collection of packages that helps you create your game.
 If you look into src/Testing.py you can see me playing around with everything. There are also examples in the docs
 
 ### Documentation
-Documentation can be found under the wiki tab in github.
+Documentation can be found under the [wiki tab](https://github.com/spidertyler2005/GameTools/wiki/) in github.
 
 ---
 
