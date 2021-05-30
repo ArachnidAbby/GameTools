@@ -35,27 +35,27 @@ class rectangle(basics.Entity):
         #self.currentPlane = Tools.Math.Basics.plane(*plane)
         pygame.draw.rect(game.window,self.color,plane)
 
-    def touching_X(self,X):
+    def touching_X(self,X, thresh=2):
         '''
         converts to pixel coordinates and tests if it has collided on the X
         '''
         global cached_info
         added = self.plane.w*cached_info["scaleFactor"][2]
         eX = self.plane.x*cached_info["scaleFactor"][0]
-        if eX+added>=X*cached_info["scaleFactor"][0]:
+        if eX+added>=X*cached_info["scaleFactor"][0] and eX+added<=(X*cached_info["scaleFactor"][0])+thresh:
             return True
-        if eX>=X*cached_info["scaleFactor"][0]:
+        elif eX<=X*cached_info["scaleFactor"][0] and eX>=(X*cached_info["scaleFactor"][0])-thresh:
             return True
         return False
     
-    def touching_Y(self,Y,game):
+    def touching_Y(self,Y,game, thresh=2):
         '''
         converts to pixel coordinates and tests if it has collided on the X
         '''
         added = self.plane.h*cached_info["scaleFactor"][2]
-        eY = self.plane.y*cached_info["scaleFactor"][0]
-        if eY+added>=Y*cached_info["scaleFactor"][0]:
+        eY = self.plane.y*cached_info["scaleFactor"][1]
+        if eY+added>=Y*cached_info["scaleFactor"][1] and eY+added<=(Y*cached_info["scaleFactor"][1])+thresh:
             return True
-        if eY>=Y*cached_info["scaleFactor"][0]:
+        if eY<=Y*cached_info["scaleFactor"][1] and eY>=(Y*cached_info["scaleFactor"][1])-thresh:
             return True
         return False

@@ -11,8 +11,9 @@ from GameTools import Templates, Entity, Tools
 from GameTools.Tools import Math
 from GameTools.Templates import FullTemplate
 
-game = FullTemplate.createGame(6,"My Game",frameRate=60)
-box = Entity.shapes.rectangle(Math.plane(0,0,0.2,0.2),(0,0,0))#position and size are a percentage of the screensize!
+game = FullTemplate.createGame(600,600,"My Game",frameRate=32)
+box = Entity.shapes.rectangle(Math.plane(0,0,Math.calculate_Coords(300,game),Math.calculate_Coords(300,game)),(0,0,0))#position and size are a percentage of the screensize!
+game.direction = 1
 
 @FullTemplate.start(game)
 def start():
@@ -24,10 +25,14 @@ def events(dt):
 
 @FullTemplate.update(game)
 def update(dt):
-    box.move(Math.point(0.2*dt,0))
-    #print(box.plane.x+box.plane.w)
+    if 1/dt<30:
+        print(1/dt)
+        return None
+    box.move(Math.point(0.2*dt*game.direction,0))
     if box.touching_X(1):
-        box.plane.x=0
+        game.direction=-1
+    if box.touching_X(0):
+        game.direction=1
 
 @FullTemplate.draw(game)
 def draw():
