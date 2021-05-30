@@ -26,7 +26,7 @@ def events(dt):
 def update(dt):
     box.move(Math.point(0.2*dt,0))
     #print(box.plane.x+box.plane.w)
-    if box.plane.x+box.plane.w>=1:
+    if box.touching_X(1):
         box.plane.x=0
 
 @FullTemplate.draw(game)
